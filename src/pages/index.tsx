@@ -1,7 +1,5 @@
-import Head from 'next/head'
-
 export default function Home() {
   return (
-    <h1>olá</h1>
+    <h1>b</h1>
   )
 }
