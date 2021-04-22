@@ -1,8 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from "next"
+import Link from 'next/link'
+import Image from 'next/image'
+
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+
 import durationToTimeString from "../../utils/durationToTimeString"
 import { api } from "../../utils/api"
+
+import css from '../../css/episode.module.scss'
 
 type EpisodeProps = {
     episode: Episode
@@ -10,7 +16,34 @@ type EpisodeProps = {
 
 export default function Episode({ episode }: EpisodeProps) {
     return (
-        <h1>{episode.title}</h1>
+        <div className={css.episode}>
+            <div className={css.thumbnailContainer}>
+                <Link href="/">
+                    <button type="button">
+                        <img src="/arrow-left.svg" alt="Voltar"/>
+                    </button>
+                </Link>
+
+                <Image width={700} height={200} src={episode.thumbnail}
+                alt="Capa do Episódio" objectFit="cover" />
+                
+                <button type="button">
+                    <img src="/play.svg" alt="Tocar Episódio"/>
+                </button>
+            </div>
+
+            <header>
+                <h1>{episode.title}</h1>
+                <span>{episode.members}</span>
+                <span>-</span>
+                <span>{episode.publishedAt}</span>
+                <span>-</span>
+                <span>{episode.durationAsString}</span>
+            </header>
+
+            <section dangerouslySetInnerHTML={{ __html: episode.description }} />
+        </div>
+        // <h1>{episode.title}</h1>
     )
 }
 

@@ -90,7 +90,7 @@
             }
 
             &:hover {
-                background: var(--gray-50);
+                filter: brightness(.95);
                 transition: .2s;
             }
         }
@@ -151,7 +151,7 @@
             }
 
             &:hover {
-                background: var(--gray-50);
+                filter: brightness(.95);
                 transition: .2s;
             }
         }
