@@ -1,7 +1,7 @@
-import React from "react"
+import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Image from 'next/image'
-import { GetStaticProps } from "next"
+
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
@@ -103,9 +103,16 @@ type Episode = {
   title: string
   thumbnail: string
   members: string
-  published_at: string
   publishedAt: string
   durationAsString: string
+}
+
+type UntreatedEpisode = {
+  id: string
+  title: string
+  thumbnail: string
+  members: string
+  published_at: string
   file: {
     duration: string
     url: string
@@ -121,7 +128,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
-  const episodes = data.map((episode: Episode) => {
+  const episodes = data.map((episode: UntreatedEpisode) => {
     return {
       id: episode.id,
       title: episode.title,
