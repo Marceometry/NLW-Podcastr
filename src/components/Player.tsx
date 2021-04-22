@@ -33,7 +33,7 @@ export default function Player() {
                     </button>
 
                     <button type="button" className={css.playButton}>
-                        <img src="/play.svg" alt="Tocar"/>
+                        <img src="/play-green.svg" alt="Tocar"/>
                     </button>
                     
                     <button type="button">
