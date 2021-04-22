@@ -39,7 +39,7 @@ export default function Home( { latestEpisodes, allEpisodes }: HomeProps) {
                 </div>
 
                 <button type="button">
-                  <img src="/play-green.svg" alt="Tocar Episódio"/>
+                  <img src="/play.svg" alt="Tocar Episódio"/>
                 </button>
               </li>
             )
@@ -85,7 +85,7 @@ export default function Home( { latestEpisodes, allEpisodes }: HomeProps) {
 
                   <td>
                     <button>
-                      <img src="/play-green.svg" alt="Tocar Episódio"/>
+                      <img src="/play.svg" alt="Tocar Episódio"/>
                     </button>
                   </td>
                 </tr>
@@ -103,9 +103,13 @@ type Episode = {
   title: string
   thumbnail: string
   members: string
+  published_at: string
   publishedAt: string
   durationAsString: string
-  url: string
+  file: {
+    duration: string
+    url: string
+  }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -117,14 +121,13 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
-  const episodes = data.map((episode) => {
+  const episodes = data.map((episode: Episode) => {
     return {
       id: episode.id,
       title: episode.title,
       thumbnail: episode.thumbnail,
       members: episode.members,
       publishedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
-      description: episode.description,
       duration: Number(episode.file.duration),
       durationAsString: durationToTimeString(Number(episode.file.duration)),
       url: episode.file.url
