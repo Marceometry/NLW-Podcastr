@@ -1,50 +1,125 @@
-import css from '../css/components/Player.module.scss'
+import { useContext, useEffect, useRef } from "react";
+import { PlayerContext } from "../contexts/PlayerContext";
+import Image from "next/image";
+
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+
+import css from "../css/components/Player.module.scss";
 
 export default function Player() {
-    return (
-        <div className={css.player}>
-            <header>
-                <img src="/playing.svg" alt=""/>
-                <strong>Tocando agora</strong>
-            </header>
+  const AudioRef = useRef<HTMLAudioElement>(null)
 
-            <div className={css.emptyPlayer}>
-                <strong>Selecione um podcast para ouvir</strong>
-            </div>
+  const {
+    episodeList,
+    currentEpisodeIndex,
+    isPlaying,
+    togglePlay,
+    setPlayingState
+  } = useContext(PlayerContext);
 
-            <footer className={css.empty}>
-                <div className={css.progress}>
-                    <span>00:00</span>
+  useEffect(() => {
+    if (!AudioRef.current) {
+      return
+    }
 
-                    <div className={css.slider}>
-                        <div className={css.emptySlider} />
-                    </div>
+    if (isPlaying) {
+      AudioRef.current.play()
+    } else {
+      AudioRef.current.pause()
+    }
+  }, [isPlaying])
 
-                    <span>--:--</span>
-                </div>
+  const episode = episodeList[currentEpisodeIndex];
 
-                <div className={css.buttons}>
-                    <button type="button">
-                        <img src="/shuffle.svg" alt="Aleatório"/>
-                    </button>
+  return (
+    <div className={css.player}>
+      <header>
+        <img src="/playing.svg" alt="" />
+        <strong>Tocando agora</strong>
+      </header>
 
-                    <button type="button">
-                        <img src="/play-previous.svg" alt="Tocar anterior"/>
-                    </button>
+      {episode ? (
+        <div className={css.currentThumbnail}>
+          <Image
+            width={592}
+            height={592}
+            src={episode.thumbnail}
+            alt="Capa do Episódio"
+            objectFit="cover"
+          />
 
-                    <button type="button" className={css.playButton}>
-                        <img src="/play-green.svg" alt="Tocar"/>
-                    </button>
-                    
-                    <button type="button">
-                        <img src="/play-next.svg" alt="Tocar próximo"/>
-                    </button>
-                    
-                    <button type="button">
-                        <img src="/repeat.svg" alt="Repetir"/>
-                    </button>
-                </div>
-            </footer>
+          <strong>{episode.title}</strong>
+          <span>{episode.members}</span>
         </div>
-    )
+      ) : (
+        <div className={css.emptyThumbnail}>
+          <strong>Selecione um podcast para ouvir</strong>
+        </div>
+      )}
+
+      <footer className={!episode && css.empty}>
+        <div className={css.progress}>
+          <span>00:00</span>
+
+          <div className={css.slider}>
+            {episode ? (
+              <Slider
+                trackStyle={{ backgroundColor: "#04d361" }}
+                railStyle={{ backgroundColor: "#9f75ff" }}
+                handleStyle={{
+                  backgroundColor: "#04d361",
+                  borderColor: "#04d361",
+                }}
+              />
+            ) : (
+              <div className={css.emptySlider} />
+            )}
+          </div>
+
+          <span>--:--</span>
+        </div>
+
+        {episode && (
+          <audio
+            src={episode.url}
+            ref={AudioRef}
+            onPlay={() => setPlayingState(true)}
+            onPause={() => setPlayingState(false)}
+            autoPlay />
+        )}
+
+        <div className={css.buttons}>
+          <button type="button" disabled={!episode}>
+            <img src="/shuffle.svg" alt="Aleatório" />
+          </button>
+
+          <button type="button" disabled={!episode}>
+            <img src="/play-previous.svg" alt="Tocar anterior" />
+          </button>
+
+          <button
+            type="button"
+            disabled={!episode}
+            className={css.playButton}
+            onClick={togglePlay}
+          >
+            {isPlaying ? (
+              <img src="/pause.svg" alt="Pausar" />
+            ) : (
+              <img src="/play.svg" alt="Tocar" />
+            )}
+          </button>
+
+          <button type="button" disabled={!episode}>
+            <img src="/play-next.svg" alt="Tocar próximo" />
+          </button>
+
+          <button type="button" disabled={!episode}>
+            <img src="/repeat.svg" alt="Repetir" />
+          </button>
+        </div>
+      </footer>
+    </div>
+  );
 }

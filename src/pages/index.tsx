@@ -43,7 +43,7 @@ export default function Home( { latestEpisodes, allEpisodes }: HomeProps) {
                 </div>
 
                 <button type="button" onClick={() => play(episode)}>
-                  <img src="/play.svg" alt="Tocar Episódio"/>
+                  <img src="/play-green.svg" alt="Tocar Episódio"/>
                 </button>
               </li>
             )
@@ -89,7 +89,7 @@ export default function Home( { latestEpisodes, allEpisodes }: HomeProps) {
 
                   <td>
                     <button>
-                      <img src="/play.svg" alt="Tocar Episódio"/>
+                      <img src="/play-green.svg" alt="Tocar Episódio"/>
                     </button>
                   </td>
                 </tr>
@@ -109,6 +109,9 @@ type Episode = {
   members: string
   publishedAt: string
   durationAsString: string
+  
+  duration: number
+  url: string
 }
 
 type UntreatedEpisode = {

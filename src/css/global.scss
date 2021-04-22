@@ -49,3 +49,7 @@ button, a {
   border: none;
   text-decoration: none;
 }
+
+button:disabled {
+  cursor: default;
+}
