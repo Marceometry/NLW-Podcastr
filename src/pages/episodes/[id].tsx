@@ -36,7 +36,7 @@ export default function Episode({ episode }: EpisodeProps) {
                 <Image width={700} height={200} src={episode.thumbnail}
                 alt="Capa do Episódio" objectFit="cover" />
                 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                     <img src="/play.svg" alt="Tocar Episódio"/>
                 </button>
             </div>
@@ -63,6 +63,7 @@ type Episode = {
   members: string
   publishedAt: string
   description: string
+  duration: number;
   durationAsString: string
   url: string
 }

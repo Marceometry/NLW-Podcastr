@@ -26,7 +26,7 @@
         width: 100%;
         align-items: stretch;
         
-        &.empty {
+        &.empty .progress {
             opacity: .5;
         }
     }
@@ -72,7 +72,7 @@
 .progress {
     display: flex;
     align-items: center;
-    gap: .75rem;
+    gap: 1rem;
     font-size: .875rem;
 
     span {
@@ -105,6 +105,8 @@
         border-radius: .5rem;
         background: transparent;
         font-size: 0;
+        transition-property: background-color, filter;
+        transition-duration: .2s;
 
         &.playButton {
             width: 4rem;
@@ -115,7 +117,18 @@
 
         &:hover:not(:disabled) {
             background: var(--purple-300);
-            transition: .2s;
+        }
+
+        &:disabled {
+            opacity: .5;
+        }
+
+        &.isActive {
+            background: var(--purple-300);
+        }
+
+        &.isActive:hover {
+            background: var(--purple-400);
         }
     }
 }
