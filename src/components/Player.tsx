@@ -113,6 +113,7 @@ export default function Player() {
             onLoadedMetadata={setupProgressListener}
             onPlay={() => setPlayingState(true)}
             onPause={() => setPlayingState(false)}
+            onEnded={playNext}
             autoPlay />
         )}
 
