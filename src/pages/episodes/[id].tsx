@@ -69,7 +69,7 @@ type Episode = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const { data } = await api.get('episodes', {
+    const { data } = await api.get('/episodes', {
         params : {
           _sort: 'published_at',
           _order: 'desc'

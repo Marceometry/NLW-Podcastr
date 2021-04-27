@@ -17,7 +17,7 @@ type HomeProps = {
   allEpisodes: Episode[]
 }
 
-export default function Home( { latestEpisodes, allEpisodes }: HomeProps) {
+export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   const { playList } = usePlayer()
 
   const episodeList = [...latestEpisodes, ...allEpisodes]
@@ -133,7 +133,7 @@ type UntreatedEpisode = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('episodes', {
+  const { data } = await api.get('/episodes', {
     params : {
       _sort: 'published_at',
       _order: 'desc'
