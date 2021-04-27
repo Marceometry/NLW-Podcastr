@@ -69,20 +69,18 @@ type Episode = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const { data } = await api.get('/episodes', {
+    const { data } = await api.get('/episodes/find', {
         params : {
           _sort: 'published_at',
           _order: 'desc'
         }
     })
-    
+
     const paths = data.map((episode: Episode) => {
         return { params: { id: episode.id } }
     })
 
-    return {
-        paths, fallback: 'blocking'
-    }
+    return { paths, fallback: 'blocking' }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
