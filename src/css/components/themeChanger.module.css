@@ -1,0 +1,16 @@
+.themeChanger {
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--gray-500);
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+    
+    transition-property: border, color;
+    transition-duration: .2s;
+}
+
+.themeChanger:hover {
+    color: var(--gray-800);
+    border: 1px solid var(--gray-800);
+}

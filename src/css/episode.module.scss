@@ -21,6 +21,7 @@
 
             border-radius: .75rem;
             border: 0;
+            transition: filter .2s;
 
             z-index: 5;
             font-size: 0;
@@ -42,7 +43,6 @@
 
             &:hover {
                 filter: brightness(.85);
-                transition: .2s;
             }
         }
     }

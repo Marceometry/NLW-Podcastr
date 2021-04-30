@@ -1,5 +1,5 @@
 :root {
-  --white: #FFF;
+  --white: #fff;
 
   --gray-50: #F7F8FA;
   --gray-100: #E6E8EB;
@@ -23,6 +23,8 @@
 
 body {
   background: var(--gray-50);
+  transition: background, color;
+  transition-duration: .2s;
 }
 
 body, button, input, textarea {
