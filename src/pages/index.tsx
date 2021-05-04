@@ -35,7 +35,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           {latestEpisodes.map((episode, index) => {
             return (
               <li key={episode.id}>
-                <Image width={96} height={96} src={episode.thumbnail} alt="Capa do Episódio" objectFit="cover" layout="fixed" />
+                <Image width={160} height={160} src={episode.thumbnail} alt="Capa do Episódio" objectFit="cover" />
 
                 <div className={css.episodeDetails}>
                   <Link href={`/episodes/${episode.id}`}>
@@ -63,10 +63,10 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
         <table cellSpacing={0}>
           <thead>
             <th></th>
-            <th>Podcast</th>
-            <th>Integrantes</th>
-            <th>Data</th>
-            <th>Duração</th>
+            <th>PODCAST</th>
+            <th>INTEGRANTES</th>
+            <th>DATA</th>
+            <th>DURAÇÃO</th>
           </thead>
 
           <tbody>
@@ -75,11 +75,10 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                 <tr key={episode.id}>
                   <td>
                     <Image
-                      width={40}
-                      height={40}
+                      width={192}
+                      height={192}
                       src={episode.thumbnail}
                       alt="Capa do Episódio"
-                      layout="fixed"
                       objectFit="cover"
                     />
                   </td>

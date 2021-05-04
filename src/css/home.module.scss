@@ -12,6 +12,7 @@
 
 .latestEpisodes {
     ul {
+        max-width: 95%;
         list-style: none;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -28,11 +29,14 @@
         display: flex;
         align-items: center;
 
-        img {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 1rem;
+        div {
+            img {
+                width: 6rem;
+                height: 6rem;
+                border-radius: 1rem;
+            }
         }
+
 
         .episodeDetails {
             flex: 1;
@@ -111,7 +115,6 @@
 
     th {
         color: var(--gray-200);
-        text-transform: uppercase;
         font: 500 .75rem Lexend, sans-serif;
         text-align: left;
     }
