@@ -22,7 +22,7 @@ export default function Home() {
         </Link>
       </section>
 
-      <img src="/woman-listening-playlist.svg" alt="" />
+      <img src="/woman-listening-playlist.svg" alt="Ilustração" />
     </div>
   )
 }
