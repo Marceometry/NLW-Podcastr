@@ -7,6 +7,7 @@ import Player from "../components/Player"
 
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import SimpleBar from 'simplebar-react';
 
 import durationToTimeString from "../utils/durationToTimeString"
 import { usePlayer } from "../contexts/PlayerContext"
@@ -30,7 +31,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
       <main>
         <Header />
 
-        <div className={css.home}>
+        <SimpleBar className={css.home} autoHide={false}>
           <Head>
             <title>Podcastr | Home</title>
           </Head>
@@ -111,7 +112,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
               </tbody>
             </table>
           </section>
-        </div>
+        </SimpleBar>
       </main>
       
       <Player />

@@ -1,6 +1,7 @@
 import { PlayerContextProvider } from "../contexts/PlayerContext"
 import Router from 'next/router'
 import Nprogress from 'nprogress'
+import 'simplebar/dist/simplebar.min.css';
 import 'nprogress/nprogress.css'
 import '../css/global.css'
 
