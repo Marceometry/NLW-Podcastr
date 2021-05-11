@@ -56,6 +56,16 @@ button:disabled {
   cursor: default;
 }
 
+#nprogress {
+    position: relative;
+    z-index: 999;
+}
+
+#nprogress .bar {
+    background: var(--green-500);
+    height: 3px;
+}
+
 
 /* responsive fonts */
 
