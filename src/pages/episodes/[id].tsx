@@ -7,6 +7,7 @@ import Player from "../../components/Player"
 
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import SimpleBar from 'simplebar-react'
 
 import durationToTimeString from "../../utils/durationToTimeString"
 import { usePlayer } from "../../contexts/PlayerContext"
@@ -27,7 +28,7 @@ export default function Episode({ episode }: EpisodeProps) {
             <main>
                 <Header />
     
-                <div className={css.container}>
+                <SimpleBar className={css.container} autoHide={false}>
                     <Head>
                     <title>{episode.title} | Podcastr</title>
                     </Head>
@@ -59,7 +60,7 @@ export default function Episode({ episode }: EpisodeProps) {
 
                         <section dangerouslySetInnerHTML={{ __html: episode.description }} />
                     </div>
-                </div>
+                </SimpleBar>
             </main>
       
             <Player />

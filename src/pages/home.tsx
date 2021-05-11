@@ -7,7 +7,7 @@ import Player from "../components/Player"
 
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-import SimpleBar from 'simplebar-react';
+import SimpleBar from 'simplebar-react'
 
 import durationToTimeString from "../utils/durationToTimeString"
 import { usePlayer } from "../contexts/PlayerContext"
