@@ -65,6 +65,25 @@ button:disabled {
   cursor: default;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--purple-300);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-500);
+  border-radius: 8px;
+  transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--blue-dark);
+}
+
 .simplebar-scrollbar::before {
   background-color: var(--purple-500)!important;
 }

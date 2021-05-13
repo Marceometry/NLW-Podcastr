@@ -12,6 +12,7 @@
     flex-direction: column;
 
     header {
+        margin-bottom: 2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -35,6 +36,11 @@
 .currentThumbnail {
     text-align: center;
 
+    div {
+        width: 20rem;
+        height: 20rem;
+    }
+
     img {
         border-radius: 1.5rem;
     }
@@ -48,14 +54,14 @@
 
     span {
         display: block;
-        margin-top: 1rem;
+        margin: 1rem 0 1.25rem;
         opacity: .6;
         line-height: 1.5rem;
     }
 }
 
 .emptyThumbnail {
-    width: 100%;
+    width: 20rem;
     height: 20rem;
     padding: 4rem;
     text-align: center;
@@ -131,5 +137,80 @@
         &.isActive:hover {
             background: var(--purple-400);
         }
+    }
+}
+
+
+// mobile
+
+@media(max-width: 1400px) {
+    .player {
+        width: 26rem;
+        padding: 3rem;
+    }
+}
+
+@media(max-width: 1000px) {
+    .player {
+        width: 100%;
+        max-height: 768px;
+    }
+}
+
+@media(max-width: 500px) {
+    .currentThumbnail {    
+        div {
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+
+    .emptyThumbnail {
+        width: 15rem;
+        height: 15rem;
+    }
+}
+
+@media(max-height: 768px) {
+    .player {
+        padding: 2rem;
+    }
+}
+
+@media(max-height: 640px) {
+    .player {
+        padding: 1rem;
+
+        header {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .currentThumbnail {    
+        div {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        strong {
+            margin-top: 1rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        span {
+            margin: .5rem 0 .75rem;
+            font-size: .875rem;
+            line-height: 1.25rem;
+        }
+    }
+
+    .emptyThumbnail {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .buttons {
+        margin-top: 1.5rem;
     }
 }

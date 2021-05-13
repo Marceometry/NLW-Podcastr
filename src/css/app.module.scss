@@ -5,3 +5,12 @@
         flex: 1;
     }
 }
+
+
+// mobile
+
+@media(max-width: 1000px) {
+    .wrapper {
+        flex-direction: column-reverse;
+    }
+}

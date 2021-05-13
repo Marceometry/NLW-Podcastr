@@ -17,7 +17,7 @@ export default function Header() {
 
             <ThemeChanger />
 
-            <span>{ currentDate }</span>
+            <span className={css.date}>{ currentDate }</span>
         </header>
     )
 }

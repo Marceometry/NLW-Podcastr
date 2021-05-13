@@ -47,7 +47,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
                     <div className={css.episodeDetails}>
                       <Link href={`/episodes/${episode.id}`}>
-                        <a>{episode.title}</a>
+                        <a title={episode.title}>{episode.title}</a>
                       </Link>
 
                         <p>{episode.members}</p>
@@ -70,11 +70,13 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
             <table cellSpacing={0}>
               <thead>
-                <th></th>
-                <th>PODCAST</th>
-                <th>INTEGRANTES</th>
-                <th>DATA</th>
-                <th>DURAÇÃO</th>
+                <tr>
+                  <th></th>
+                  <th>PODCAST</th>
+                  <th>INTEGRANTES</th>
+                  <th>DATA</th>
+                  <th>DURAÇÃO</th>
+                </tr>
               </thead>
 
               <tbody>
@@ -98,7 +100,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                       </td>
 
                       <td>{episode.members}</td>
-                      <td style={{width: 100}}>{episode.publishedAt}</td>
+                      <td>{episode.publishedAt}</td>
                       <td>{episode.durationAsString}</td>
 
                       <td>

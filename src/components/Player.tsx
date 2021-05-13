@@ -80,7 +80,7 @@ export default function Player() {
         </div>
       )}
 
-      <footer className={!episode && css.empty}>
+      <footer className={!episode ? css.empty : ''}>
         <div className={css.progress}>
           <span>{durationToTimeString(progress)}</span>
 
