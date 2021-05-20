@@ -12,7 +12,7 @@
 <br>
 
 <p align="center">
-  <img alt="Podcastr" src="podcastr.png" width="100%">
+  <img alt="Podcastr" src=".github/podcastr.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
