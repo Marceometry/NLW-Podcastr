@@ -22,6 +22,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React](https://reactjs.org)
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
 
 ## 💻 Projeto
 
