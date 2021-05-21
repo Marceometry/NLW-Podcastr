@@ -47,7 +47,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 - Instale as dependências com `yarn`
 - Inicie o servidor com `yarn dev`
 
-Agora você pode acessar [`localhost:4444`](http://localhost:4444) do seu navegador, logar com seu github e utilizar sua própria base de dados.
+Agora você pode acessar [`localhost:5555`](http://localhost:5555) do seu navegador, logar com seu github e utilizar sua própria base de dados.
 
 ---
 
